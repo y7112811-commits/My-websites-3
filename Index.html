@@ -15,7 +15,6 @@
 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            /* Kept the dark deep space liquid background to make the pink pop! */
             background: linear-gradient(-45deg, #1a0014, #2a0845, #140024, #3d002e);
             background-size: 400% 400%;
             animation: liquidBg 12s ease infinite;
@@ -43,7 +42,7 @@
             overflow: hidden;
         }
 
-        /* Branding Header - Now Pink */
+        /* Branding Header */
         h2 {
             margin: 0 0 5px 0;
             text-align: center;
@@ -61,11 +60,11 @@
             font-size: 11px;
             letter-spacing: 2px;
             color: #f48fb1;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-transform: uppercase;
         }
 
-        /* Inputs & Buttons - Now Pink */
+        /* Shared Inputs & Buttons */
         label {
             font-size: 13px;
             color: #f8bbd0;
@@ -74,51 +73,95 @@
             font-weight: 600;
         }
 
-        input, button { 
+        input[type="text"] { 
             padding: 14px; 
-            margin-bottom: 15px; 
             width: 100%; 
             box-sizing: border-box; 
             border-radius: 12px; 
-            border: none; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
             outline: none;
             transition: all 0.3s ease;
-        }
-
-        input { 
             background: rgba(0, 0, 0, 0.3); 
             color: #fff; 
-            border: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 15px;
         }
 
-        input:focus {
+        input[type="text"]:focus {
             background: rgba(0, 0, 0, 0.5);
             border-color: #ff4081;
             box-shadow: 0 0 15px rgba(255, 64, 129, 0.4);
         }
 
-        button { 
+        .primary-btn { 
+            padding: 14px;
+            width: 100%;
+            border-radius: 12px;
+            border: none;
             background: linear-gradient(135deg, #d81b60, #ff4081); 
             color: white; 
             font-weight: bold; 
             font-size: 15px;
             cursor: pointer; 
             box-shadow: 0 4px 15px rgba(216, 27, 96, 0.4);
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            margin-top: 10px;
         }
 
-        button:hover {
+        .primary-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 64, 129, 0.6);
         }
 
-        button:active {
-            transform: translateY(1px);
+        /* Action Bar (Call Button) */
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .call-btn {
+            background: rgba(216, 27, 96, 0.2);
+            border: 1px solid rgba(255, 64, 129, 0.4);
+            color: #f8bbd0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .call-btn:hover {
+            background: rgba(216, 27, 96, 0.5);
+        }
+
+        /* Video Section */
+        #video-section {
+            display: none;
+            gap: 10px;
+            margin-bottom: 15px;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 64, 129, 0.2);
+        }
+
+        video {
+            width: 48%;
+            border-radius: 8px;
+            background: #000;
+            border: 1px solid rgba(255, 64, 129, 0.3);
         }
 
         /* Chat Box & Watermark */
         #chat-box { 
-            height: 320px; 
+            height: 300px; 
             overflow-y: auto; 
             background: rgba(0, 0, 0, 0.2); 
             padding: 15px; 
@@ -131,7 +174,6 @@
             margin-bottom: 15px;
         }
 
-        /* Liquid Scrollbar - Now Pink */
         #chat-box::-webkit-scrollbar { width: 6px; }
         #chat-box::-webkit-scrollbar-track { background: transparent; }
         #chat-box::-webkit-scrollbar-thumb { background: #d81b60; border-radius: 10px; }
@@ -150,7 +192,7 @@
             z-index: 0;
         }
 
-        /* Messages - Now Pink Glass */
+        /* Messages */
         .msg { 
             padding: 12px 16px; 
             border-radius: 12px; 
@@ -176,6 +218,18 @@
             border-bottom-left-radius: 2px;
         }
 
+        .msg img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        .msg a {
+            color: #f8bbd0;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
         .system { 
             color: #f48fb1; 
             font-size: 11px; 
@@ -186,7 +240,39 @@
             z-index: 1;
         }
 
-        /* Dividers */
+        /* Modern Chat Controls */
+        .chat-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: rgba(216, 27, 96, 0.3);
+            border: 1px solid rgba(255, 64, 129, 0.4);
+            color: white;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .icon-btn:hover {
+            background: rgba(255, 64, 129, 0.6);
+            transform: scale(1.05);
+        }
+
+        .icon-btn.send {
+            background: linear-gradient(135deg, #d81b60, #ff4081);
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.4);
+        }
+
         .divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
@@ -203,30 +289,52 @@
         <div id="setup">
             <label>1. Create Your ID (Any word or number):</label>
             <input type="text" id="my-id" placeholder="e.g., yash123">
-            <button onclick="startMyServer()">Start My Node</button>
+            <button class="primary-btn" onclick="startMyServer()">Start My Node</button>
         </div>
 
         <div id="connect-section" style="display:none;">
             <div class="divider"></div>
             <label>2. Connect to a Friend's ID:</label>
             <input type="text" id="friend-id" placeholder="Enter their exact ID">
-            <button onclick="connectToFriend()">Connect</button>
+            <button class="primary-btn" onclick="connectToFriend()">Connect</button>
         </div>
 
         <div id="chat-section" style="display:none;">
             <div class="divider"></div>
+            
+            <div class="action-bar">
+                <label style="margin:0;">Chat Active</label>
+                <button class="call-btn" onclick="startVideoCall()">📹 Video Call</button>
+            </div>
+
+            <!-- Video Interface -->
+            <div id="video-section">
+                <video id="local-video" autoplay muted playsinline></video>
+                <video id="remote-video" autoplay playsinline></video>
+            </div>
+
             <div id="chat-box">
                 <div class="watermark">by y@$h</div>
                 <!-- Messages will appear here -->
             </div>
-            <input type="text" id="msg-input" placeholder="Type a liquid message..." onkeypress="if(event.key === 'Enter') sendMessage()">
-            <button onclick="sendMessage()">Send Message</button>
+            
+            <!-- Modern Chat Input Row -->
+            <div class="chat-controls">
+                <button class="icon-btn" title="Send File" onclick="document.getElementById('file-input').click()">📎</button>
+                <input type="file" id="file-input" style="display:none" onchange="sendFile(this)">
+                
+                <input type="text" id="msg-input" placeholder="Message..." onkeypress="if(event.key === 'Enter') sendMessage()">
+                
+                <button class="icon-btn send" title="Send Message" onclick="sendMessage()">➤</button>
+            </div>
         </div>
     </div>
 
     <script>
         let peer = null;
         let activeConnection = null;
+        let localStream = null;
+        let currentCall = null;
 
         // 1. Initialize your node
         function startMyServer() {
@@ -236,16 +344,34 @@
             peer = new Peer(myId, { debug: 2 }); 
 
             peer.on('open', (id) => {
-                logMessage(`System: You are online as "${id}"`, 'system');
+                logSystem(`You are online as "${id}"`);
                 document.getElementById('setup').style.display = 'none';
                 document.getElementById('connect-section').style.display = 'block';
                 document.getElementById('chat-section').style.display = 'block';
             });
 
-            // Listen for someone connecting to YOU
+            // Listen for data connection
             peer.on('connection', (conn) => {
                 activeConnection = conn;
                 setupConnection(conn);
+            });
+
+            // Listen for video calls
+            peer.on('call', async (call) => {
+                const accept = confirm("Incoming video call! Accept?");
+                if (accept) {
+                    try {
+                        localStream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+                        document.getElementById('local-video').srcObject = localStream;
+                        document.getElementById('video-section').style.display = 'flex';
+                        call.answer(localStream);
+                        handleCall(call);
+                    } catch (err) {
+                        alert("Camera/Microphone access denied.");
+                    }
+                } else {
+                    call.close();
+                }
             });
 
             peer.on('error', (err) => {
@@ -258,7 +384,7 @@
             const friendId = document.getElementById('friend-id').value.trim();
             if (!friendId) return alert("Enter a friend's ID!");
 
-            logMessage(`System: Attempting to connect to ${friendId}...`, 'system');
+            logSystem(`Attempting to connect to ${friendId}...`);
             activeConnection = peer.connect(friendId, { reliable: true });
             setupConnection(activeConnection);
         }
@@ -266,50 +392,124 @@
         // 3. Handle data passing back and forth
         function setupConnection(conn) {
             conn.on('open', () => {
-                logMessage(`System: Connected securely to ${conn.peer}!`, 'system');
+                logSystem(`Connected securely to ${conn.peer}!`);
             });
 
             conn.on('data', (data) => {
-                logMessage(`Friend: ${data}`, 'friend');
+                if (data.type === 'text') {
+                    renderMessage(data.content, 'friend');
+                } else if (data.type === 'file') {
+                    renderFileMessage(data.filename, data.filetype, data.filedata, 'friend');
+                }
             });
 
             conn.on('close', () => {
-                logMessage(`System: Connection closed.`, 'system');
+                logSystem(`Connection closed.`);
                 activeConnection = null;
             });
         }
 
-        // 4. Send the message
+        // 4. Send Text Message
         function sendMessage() {
             const input = document.getElementById('msg-input');
             const text = input.value.trim();
             
             if (!text) return;
-            if (!activeConnection || !activeConnection.open) {
-                return alert("No active connection. Connect to a friend first.");
-            }
+            if (!activeConnection || !activeConnection.open) return alert("Connect to a friend first.");
 
-            activeConnection.send(text);
-            logMessage(`You: ${text}`, 'you');
+            activeConnection.send({ type: 'text', content: text });
+            renderMessage(text, 'you');
             input.value = '';
         }
 
-        // 5. Print to screen
-        function logMessage(text, type = '') {
+        // 5. Send File Message
+        function sendFile(inputBox) {
+            const file = inputBox.files[0];
+            if (!file) return;
+            if (!activeConnection || !activeConnection.open) return alert("Connect to a friend first.");
+
+            if (file.size > 5 * 1024 * 1024) {
+                return alert("File is too large. Please send files smaller than 5MB.");
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const base64Data = e.target.result;
+                activeConnection.send({
+                    type: 'file',
+                    filename: file.name,
+                    filetype: file.type,
+                    filedata: base64Data
+                });
+                renderFileMessage(file.name, file.type, base64Data, 'you');
+            };
+            reader.readAsDataURL(file);
+            inputBox.value = ''; // Reset input
+        }
+
+        // 6. Video Call Logic
+        async function startVideoCall() {
+            if (!activeConnection || !activeConnection.open) return alert("Connect to a friend first.");
+            
+            try {
+                localStream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+                document.getElementById('local-video').srcObject = localStream;
+                document.getElementById('video-section').style.display = 'flex';
+                
+                logSystem(`Ringing ${activeConnection.peer}...`);
+                const call = peer.call(activeConnection.peer, localStream);
+                handleCall(call);
+            } catch (err) {
+                alert("Camera/Microphone access denied.");
+            }
+        }
+
+        function handleCall(call) {
+            currentCall = call;
+            call.on('stream', (remoteStream) => {
+                document.getElementById('remote-video').srcObject = remoteStream;
+                logSystem("Video call connected.");
+            });
+            call.on('close', () => {
+                document.getElementById('video-section').style.display = 'none';
+                if (localStream) localStream.getTracks().forEach(track => track.stop());
+                logSystem("Video call ended.");
+            });
+        }
+
+        // 7. UI Rendering Helpers
+        function logSystem(text) {
             const box = document.getElementById('chat-box');
             const div = document.createElement('div');
+            div.className = 'system';
+            div.textContent = `[ ${text} ]`;
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function renderMessage(text, sender) {
+            const box = document.getElementById('chat-box');
+            const div = document.createElement('div');
+            div.className = `msg ${sender === 'you' ? 'msg-you' : 'msg-friend'}`;
+            div.textContent = text;
+            box.appendChild(div);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function renderFileMessage(filename, filetype, dataUrl, sender) {
+            const box = document.getElementById('chat-box');
+            const div = document.createElement('div');
+            div.className = `msg ${sender === 'you' ? 'msg-you' : 'msg-friend'}`;
             
-            if (type === 'system') {
-                div.className = 'system';
-            } else if (type === 'you') {
-                div.className = 'msg msg-you';
-            } else if (type === 'friend') {
-                div.className = 'msg msg-friend';
-            } else {
-                div.className = 'msg';
+            let contentHTML = `<strong>📁 ${filename}</strong><br>`;
+            
+            if (filetype.startsWith('image/')) {
+                contentHTML += `<img src="${dataUrl}" alt="image"><br>`;
             }
             
-            div.textContent = text;
+            contentHTML += `<a href="${dataUrl}" download="${filename}">Download</a>`;
+            div.innerHTML = contentHTML;
+            
             box.appendChild(div);
             box.scrollTop = box.scrollHeight;
         }
