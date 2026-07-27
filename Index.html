@@ -10,107 +10,126 @@
 
 *{margin:0; padding:0; box-sizing:border-box;}
 body{
-  background:linear-gradient(135deg,#ff9a9e 0%,#fecfef 50%,#fecfef 100%);
-  background-size:400% 400%;
-  animation:gradientShift 8s ease infinite;
+  background:linear-gradient(135deg,#ff9a9e 0%,#fecfef 50%,#a18cd1 100%);
+  background-size:400% 400%; animation:gradientShift 8s ease infinite;
   display:flex; justify-content:center; align-items:flex-start; flex-direction:column;
   min-height:100vh; padding:120px 20px 40px; font-family:'Kalam', cursive;
 }
-@keyframes gradientShift{
- 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}
-}
+@keyframes gradientShift{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}
 
-/* LIQUID GLASS TOOLBAR - NEON */
+/* ULTRA LIQUID GLASS TOOLBAR */
 .toolbar{
   position:fixed; top:15px; left:50%; transform:translateX(-50%);
   width:90%; max-width:1100px; 
-  background:rgba(255,255,255,0.25);
-  backdrop-filter:blur(25px) saturate(200%); 
-  border:2px solid rgba(255,255,255,0.4);
-  border-radius:20px; padding:14px 20px; display:flex; gap:10px; flex-wrap:wrap; z-index:100;
-  box-shadow:0 0 30px rgba(255,105,180,0.5);
+  background:rgba(255,255,255,0.08); /* More transparent */
+  backdrop-filter:blur(30px) saturate(250%); /* More blur */
+  border:1.5px solid rgba(255,255,255,0.25);
+  border-radius:24px; padding:14px 20px; display:flex; gap:10px; flex-wrap:wrap; z-index:100;
+  box-shadow:0 8px 40px rgba(31,38,135,0.3), inset 0 1px 1px rgba(255,255,255,0.3);
 }
 .toolbar button, .toolbar select{
-  border:1px solid rgba(255,255,255,0.5); 
-  background:linear-gradient(135deg,rgba(255,255,255,0.3),rgba(255,255,255,0.1)); 
-  color:#fff; font-weight:700; text-shadow:0 0 5px rgba(0,0,0,0.3);
+  border:1px solid rgba(255,255,255,0.3); 
+  background:rgba(255,255,255,0.15); /* Transparent buttons */
+  color:#fff; font-weight:800; 
+  text-shadow:0 0 8px rgba(255,255,255,0.8); /* Text visible glow */
   padding:10px 16px; border-radius:12px; cursor:pointer; font-size:14px;
   font-family:'Poppins', sans-serif; transition:0.3s;
 }
 .toolbar button:hover{
-  background:linear-gradient(135deg,#ff6ec4,#7873f5);
+  background:rgba(0,234,255,0.3); /* Cyan hover */
   transform:scale(1.05) translateY(-2px);
-  box-shadow:0 0 20px rgba(255,110,196,0.8)
+  box-shadow:0 0 25px rgba(0,234,255,0.8);
+  text-shadow:0 0 12px #fff;
 }
-.toolbar select{color:#333; background:rgba(255,255,255,0.9)}
+.toolbar select{color:#000; background:rgba(255,255,255,0.85)}
 
 #notebook{width:800px; max-width:100%; margin:0 auto;}
 
-/* BRIGHT NOTEBOOK PAGE */
+/* BRIGHTER NOTEBOOK PAGE */
 .page{
   width:100%; min-height:1050px; 
-  background:#fffdfa; 
-  box-shadow:0 0 40px rgba(255,105,180,0.4), 0 20px 60px rgba(0,0,0,0.3);
-  position:relative; padding:60px 80px 80px 120px; border-radius:12px; margin-bottom:40px;
-  border:3px solid rgba(255,182,193,0.5);
+  background:#ffffff; /* Pure white = brighter */
+  box-shadow:0 0 50px rgba(255,105,180,0.5), 0 25px 70px rgba(0,0,0,0.25);
+  position:relative; padding:60px 80px 80px 120px; border-radius:14px; margin-bottom:40px;
+  border:2px solid rgba(173,216,230,0.6); /* Light blue border */
   
-  /* BRIGHT Notebook lines + pink margin line */
+  /* BRIGHT BLUE LINES */
   background-image: 
-    linear-gradient(to right, #ff80ab 3px, transparent 3px),
-    repeating-linear-gradient(#fffdfa, #fffdfa 31px, #b3e5fc 32px);
+    linear-gradient(to right, #ff80ab 3px, transparent 3px), /* Pink margin */
+    repeating-linear-gradient(#ffffff, #ffffff 31px, #87ceeb 32px); /* Bright Sky Blue lines */
   background-size: 100% 100%, 100% 32px;
   background-position: 90px 0, 0 60px;
 }
 
+/* PAGE ACTION BUTTONS */
+.page-actions{
+  position:absolute; top:15px; right:20px; z-index:2; display:flex; gap:8px;
+}
+.page-actions button{
+  border:none; color:#fff; padding:8px 14px; border-radius:10px; 
+  font-family:'Poppins'; font-weight:700; cursor:pointer; font-size:13px;
+  box-shadow:0 0 15px rgba(0,0,0,0.2); transition:0.3s;
+}
+.page-actions button:hover{transform:scale(1.1);}
+.btn-clear{background:linear-gradient(135deg,#00e5ff,#00b0ff);}
+.btn-remove{background:linear-gradient(135deg,#ff4081,#ff6ec4);}
+
 /* BRIGHT WATERMARK */
 .watermark{
   position:absolute; top:50%; left:55%; transform:translate(-50%,-50%) rotate(-25deg);
-  font-size:130px; 
-  background:linear-gradient(135deg,#ff6ec4,#7873f5);
+  font-size:130px; background:linear-gradient(135deg,#00e5ff,#7873f5);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  font-weight:900; font-family:'Poppins'; pointer-events:none; z-index:0; opacity:0.12;
+  font-weight:900; font-family:'Poppins'; pointer-events:none; z-index:0; opacity:0.08;
 }
 
-/* BRIGHT Hole punches */
+/* Hole punches */
 .page::before{
   content:''; position:absolute; left:28px; top:78px; width:24px; height:24px; 
-  background:radial-gradient(circle, #fff 30%, #ff80ab 100%);
-  border-radius:50%; box-shadow:0 0 10px rgba(255,128,171,0.6);
-  box-shadow:0 150px 0 radial-gradient, 0 300px 0 radial-gradient, 0 450px 0 radial-gradient, 0 600px 0 radial-gradient, 0 750px 0 radial-gradient;
+  background:radial-gradient(circle, #fff 30%, #87ceeb 100%);
+  border-radius:50%; box-shadow:0 0 10px rgba(135,206,235,0.6),
+ 0 150px 0 #87ceeb, 0 300px 0 #87ceeb, 0 450px 0 #87ceeb, 0 600px 0 #87ceeb, 0 750px 0 #87ceeb;
 }
 
-/* Editable area - BRIGHT INK */
+/* EDITOR - PROPER BLUE INK */
 .editor{
   position:relative; z-index:1; width:100%; min-height:900px; outline:none; border:none;
   background:transparent; font-size:21px; line-height:32px; 
-  color:#2d1b69; /* Dark purple ink */
+  color:#0d47a1; /* Proper Dark Blue ink */
   font-family:'Kalam', cursive;
 }
-.editor a{color:#d500f9; text-decoration:underline; font-weight:700;}
-.editor a:hover{color:#ff00ff; text-shadow:0 0 5px rgba(213,0,249,0.5);}
+.editor a{color:#2962ff; text-decoration:underline; font-weight:700;}
+.editor a:hover{color:#00b0ff; text-shadow:0 0 5px rgba(41,98,255,0.5);}
 
 /* Page number */
-.pageNum{
-  position:absolute; bottom:30px; right:80px; font-size:15px; color:#7b1fa2; 
-  font-family:'Poppins'; font-weight:700;
-}
+.pageNum{position:absolute; bottom:30px; right:80px; font-size:15px; color:#1565c0; font-family:'Poppins'; font-weight:700;}
 
-/* HANDWRITING BRANDING - GLOW */
+/* HANDWRITING BRANDING */
 .write-corner-brand{
   position:absolute; bottom:25px; right:25px; font-size:15px; 
-  background:linear-gradient(135deg,#ff6ec4,#7873f5);
+  background:linear-gradient(135deg,#00e5ff,#7873f5);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;
   font-family:'Kalam', cursive; font-weight:800; letter-spacing:1.5px; 
-  padding:8px 14px; border:2px dashed rgba(255,110,196,0.4); border-radius:25px;
-  transform:rotate(-3deg); filter:drop-shadow(0 0 5px rgba(255,110,196,0.5));
+  padding:8px 14px; border:2px dashed rgba(0,176,255,0.4); border-radius:25px;
+  transform:rotate(-3deg); filter:drop-shadow(0 0 5px rgba(0,176,255,0.5));
 }
 
-/* ===== PRINT FIX ===== */
+/* ===== PRINT FIX - BRIGHT + BLUE INK ===== */
 @media print{
   body{background:white; padding:0;}
-  .toolbar{display:none;}
-  .page{box-shadow:none; margin:0 0 20px 0; page-break-after:always; -webkit-print-color-adjust: exact; print-color-adjust: exact; border:1px solid #ccc;}
-  .editor{font-family:'Kalam', cursive !important; font-size:18px; line-height:32px; color:#000;}
+  .toolbar, .page-actions{display:none;}
+  .page{
+    background:#fff; box-shadow:none; margin:0 0 20px 0; page-break-after:always; 
+    border:1px solid #ddd;
+    background-image: 
+      linear-gradient(to right, #ff80ab 2px, transparent 2px),
+      repeating-linear-gradient(#fff, #fff 31px, #87ceeb 32px); /* Blue lines in print too */
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .editor{
+    font-family:'Kalam', cursive !important; font-size:18px; line-height:32px; 
+    color:#0d47a1 !important; /* Blue ink in print */
+  }
+  .watermark, .write-corner-brand{opacity:0.1 !important;}
   @page {margin: 0.5in;}
 }
 </style>
@@ -131,13 +150,16 @@ body{
 
 <div id="notebook">
   <div class="page">
+    <div class="page-actions">
+      <button class="btn-clear" onclick="clearPage(this)">🧹 Clear</button>
+      <button class="btn-remove" onclick="removePage(this)">🗑️ Remove</button>
+    </div>
     <div class="watermark">y@$h</div>
     <div class="editor" contenteditable="true">
-      <h2>✨ My Bright One World Page ✨</h2><br>
-      Now notebook is bright and attractive!<br><br>
-      Pink margin line, blue ruled lines, aur gradient background.<br><br>
-      This is a <a href="https://google.com">glowing link</a>.<br><br>
-      Handwriting in dark purple ink looks premium.<br><br>
+      <h2>✨ Bright Blue Ink Page ✨</h2><br>
+      Toolbar ab aur liquid aur transparent hai.<br>
+      Text ka color ab proper dark blue hai.<br>
+      Print karoge to bhi blue ink aur blue lines ayengi.<br><br>
     </div>
     <div class="pageNum">Page 1</div>
     <div class="write-corner-brand">made by y@$h notebook world</div>
@@ -152,21 +174,22 @@ function addPage(){
   const newPage = document.createElement('div');
   newPage.className = 'page';
   newPage.innerHTML = `
+    <div class="page-actions">
+      <button class="btn-clear" onclick="clearPage(this)">🧹 Clear</button>
+      <button class="btn-remove" onclick="removePage(this)">🗑️ Remove</button>
+    </div>
     <div class="watermark">y@$h</div>
-    <div class="editor" contenteditable="true"><br><br>Page ${pageCount} - Start writing with bright colors...</div>
+    <div class="editor" contenteditable="true"><br><br>Page ${pageCount} - Write in blue ink...</div>
     <div class="pageNum">Page ${pageCount}</div>
     <div class="write-corner-brand">made by y@$h notebook world</div>
   `;
   notebook.appendChild(newPage);
   newPage.querySelector('.editor').focus();
-  saveData();
+  updatePageNumbers();
 }
-function saveData(){ localStorage.setItem('yashNotebook', document.getElementById('notebook').innerHTML); }
-document.addEventListener('input', saveData);
-window.onload = () => {
-  const saved = localStorage.getItem('yashNotebook');
-  if(saved) { document.getElementById('notebook').innerHTML = saved; pageCount = document.querySelectorAll('.page').length; }
-}
+function clearPage(btn){ if(confirm("Clear this page?")){ btn.closest('.page').querySelector('.editor').innerHTML = "<br><br>Start writing..."; } }
+function removePage(btn){ const pages = document.querySelectorAll('.page'); if(pages.length <= 1){ alert("Last page delete nahi kar sakte!"); return; } if(confirm("Delete this page?")){ btn.closest('.page').remove(); updatePageNumbers(); } }
+function updatePageNumbers(){ document.querySelectorAll('.page').forEach((page, i) => { page.querySelector('.pageNum').textContent = `Page ${i+1}`; }); pageCount = document.querySelectorAll('.page').length; }
 </script>
 </body>
 </html>
